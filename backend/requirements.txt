@@ -1,0 +1,7 @@
+flask
+flask-socketio
+eventlet
+psycopg2-binary
+flask_sqlalchemy
+redis
+flasgger

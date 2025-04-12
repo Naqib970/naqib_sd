@@ -1,0 +1,14 @@
+paths:
+  /movies/{category}:
+    get:
+      summary: Get movies by category
+      parameters:
+        - in: path
+          name: category
+          required: true
+          schema:
+            type: string
+            enum: [new_release, popular, recommended]
+      responses:
+        '200':
+          description: List of movies

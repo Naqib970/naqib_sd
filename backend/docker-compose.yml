@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_DB=cinema
+      - POSTGRES_USER=cinema_user
+      - POSTGRES_PASSWORD=secret
+      - FLASK_SECRET_KEY=supersecretkey
+    depends_on:
+      - db
+      - redis
+
+  redis:
+    image: redis:7
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: cinema
+      POSTGRES_USER: cinema_user
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
